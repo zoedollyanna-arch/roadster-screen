@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Roadster Screen</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="screen">
+  <!-- status bar -->
+  <header id="status">
+    <div class="st-left"><span id="gear">P</span><span class="st-sep"></span><span id="range">312 mi</span></div>
+    <div class="st-mid"><img src="assets/t_logo.png" alt="" class="st-logo"></div>
+    <div class="st-right"><span id="temp">72°</span><span id="clock">12:00</span><span class="batt"><i style="width:82%"></i></span></div>
+  </header>
+
+  <main id="view">
+    <!-- HOME -->
+    <section class="page active" data-page="home">
+      <div class="car-card">
+        <div class="car-head"><div><div class="car-name">Roadster</div><div class="car-sub" id="carState">Parked · Doors closed</div></div>
+          <div class="conn" id="connBadge">Not linked</div></div>
+        <div class="car-hero"><div class="car-glow" id="carGlow"></div><img src="assets/roadster_home.png" alt="Roadster" id="carImg"></div>
+        <div class="quick">
+          <button class="qbtn" data-act="headlights"><span class="qi">◐</span><span>Headlights</span></button>
+          <button class="qbtn" data-act="cabin"><span class="qi">◉</span><span>Cabin light</span></button>
+          <button class="qbtn" data-act="ambient"><span class="qi">✦</span><span>Ambient</span></button>
+        </div>
+      </div>
+      <div class="now-card" id="nowCard">
+        <div class="now-art" id="nowArt">♪</div>
+        <div class="now-txt"><div class="now-title" id="nowTitle">Nothing playing</div><div class="now-sub" id="nowSub">Choose Radio or YouTube</div></div>
+        <button class="round" id="nowToggle" aria-label="Play / pause">▶</button>
+      </div>
+      <div class="apps">
+        <button class="app" data-open="youtube"><span class="ai yt">▶</span><span>YouTube</span></button>
+        <button class="app" data-open="radio"><span class="ai rd">📻</span><span>Radio</span></button>
+        <button class="app" data-open="lights"><span class="ai lt">✦</span><span>Lights</span></button>
+        <button class="app" data-open="about"><span class="ai ab">i</span><span>Car</span></button>
+      </div>
+    </section>
+
+    <!-- YOUTUBE (in-screen: search + embedded player, Back/Home always visible) -->
+    <section class="page" data-page="youtube">
+      <div class="bar"><button class="back">‹ Back</button><h1>YouTube</h1><button class="homebtn">⌂ Home</button></div>
+      <div class="yt-player" id="ytWrap"><div class="yt-empty">Search or pick a category, then tap a video</div></div>
+      <form class="yt-form" id="ytForm"><input id="ytInput" placeholder="Search YouTube" autocomplete="off" enterkeyhint="search"><button>Search</button></form>
+      <div class="chips" id="ytCats"></div>
+      <div class="list" id="ytList"></div>
+      <button class="ext-link" data-ext="https://m.youtube.com/">Open the full YouTube site ↗ <small>(use ⌂ on the media bar to come back)</small></button>
+    </section>
+
+    <!-- RADIO -->
+    <section class="page" data-page="radio">
+      <div class="bar"><button class="back">‹ Back</button><h1>Radio</h1><button class="homebtn">⌂ Home</button></div>
+      <div class="chips" id="radioCats"></div>
+      <form class="yt-form" id="radioForm"><input id="radioInput" placeholder="Search stations (name)" autocomplete="off"><button>Search</button></form>
+      <div class="list" id="radioList"><div class="hint">Choose a category to load live stations.</div></div>
+      <div class="player" id="radioPlayer">
+        <img id="rpIcon" alt=""><div class="rp-txt"><div id="rpName">No station</div><div id="rpMeta" class="dim">—</div></div>
+        <button class="round" id="rpToggle" aria-label="Play / pause">▶</button>
+        <input type="range" id="rpVol" min="0" max="100" value="70" aria-label="Volume">
+      </div>
+    </section>
+
+    <!-- LIGHTS -->
+    <section class="page" data-page="lights">
+      <div class="bar"><button class="back">‹ Back</button><h1>Lights</h1><button class="homebtn">⌂ Home</button></div>
+      <div class="row-card"><span>Ambient lighting</span><label class="switch"><input type="checkbox" id="ambOn" checked><i></i></label></div>
+      <h2>Colour</h2>
+      <div class="swatches" id="swatches"></div>
+      <h2>Effect</h2>
+      <div class="chips" id="effects"></div>
+      <div class="slider-card"><div class="sl-head"><span>Glow</span><b id="glowVal">10%</b></div><input type="range" id="glow" min="0" max="8" value="3"></div>
+      <div class="slider-card"><div class="sl-head"><span>Effect speed</span><b id="speedVal">Normal</b></div><input type="range" id="speed" min="0" max="2" value="1"></div>
+      <div class="row-card"><span>Headlights</span><label class="switch"><input type="checkbox" id="headOn"><i></i></label></div>
+      <div class="row-card"><span>Cabin light</span><label class="switch"><input type="checkbox" id="cabinOn"><i></i></label></div>
+      <div class="hint" id="lightHint"></div>
+    </section>
+
+    <!-- CAR / ABOUT -->
+    <section class="page" data-page="about">
+      <div class="bar"><button class="back">‹ Back</button><h1>Car</h1><button class="homebtn">⌂ Home</button></div>
+      <div class="row-card"><span>Model</span><b>Roadster</b></div>
+      <div class="row-card"><span>Drive</span><b>W/S · A/D · C brake</b></div>
+      <div class="row-card"><span>Fly</span><b>E take off · hold C to land</b></div>
+      <div class="row-card"><span>Doors</span><b>Touch a door</b></div>
+      <div class="row-card"><span>Car link</span><b id="aboutLink">Not linked</b></div>
+    </section>
+  </main>
+
+  <!-- dock -->
+  <nav id="dock">
+    <button data-open="home" class="dock-home">⌂<small>Home</small></button>
+    <button data-open="youtube">▶<small>YouTube</small></button>
+    <button data-open="radio">📻<small>Radio</small></button>
+    <button data-open="lights">✦<small>Lights</small></button>
+    <div class="dock-vol"><button id="volDown">−</button><span>🔊</span><button id="volUp">+</button></div>
+  </nav>
+</div>
+<audio id="radioAudio" preload="none"></audio>
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
