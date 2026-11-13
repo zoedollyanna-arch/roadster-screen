@@ -38,8 +38,13 @@
         <button class="app" data-open="youtube"><span class="ai yt">▶</span><span>YouTube</span></button>
         <button class="app" data-open="radio"><span class="ai rd">📻</span><span>Radio</span></button>
         <button class="app" data-open="lights"><span class="ai lt">✦</span><span>Lights</span></button>
-        <button class="app" data-open="about"><span class="ai ab">i</span><span>Car</span></button>
+        <button class="app" data-open="about"><span class="ai ab">?</span><span>Guide</span></button>
       </div>
+      <button class="tip-card" data-open="about" id="tipCard">
+        <span class="tip-ic" id="tipIcon">✈️</span>
+        <span class="tip-txt"><small>Quick tip</small><b id="tipText">Hold the left mouse button for 1.5 s to take off</b></span>
+        <span class="tip-go">›</span>
+      </button>
     </section>
 
     <!-- YOUTUBE (in-screen: search + embedded player, Back/Home always visible) -->
@@ -80,14 +85,137 @@
       <div class="hint" id="lightHint"></div>
     </section>
 
-    <!-- CAR / ABOUT -->
+    <!-- GUIDE (owner's guide, buyer friendly) -->
     <section class="page" data-page="about">
-      <div class="bar"><button class="back">‹ Back</button><h1>Car</h1><button class="homebtn">⌂ Home</button></div>
-      <div class="row-card"><span>Model</span><b>Roadster</b></div>
-      <div class="row-card"><span>Drive</span><b>W/S · A/D · C brake</b></div>
-      <div class="row-card"><span>Fly</span><b>E take off · hold C to land</b></div>
-      <div class="row-card"><span>Doors</span><b>Touch a door</b></div>
-      <div class="row-card"><span>Car link</span><b id="aboutLink">Not linked</b></div>
+      <div class="bar"><button class="back">‹ Back</button><h1>Guide</h1><button class="homebtn">⌂ Home</button></div>
+      <div class="guide-hero">
+        <div class="gh-title">Welcome to your Roadster ♥</div>
+        <div class="gh-sub">Drive it, fly it, show it off. Tap a topic below.</div>
+        <div class="gh-link" id="aboutLink">Open this screen inside the car to control the lights</div>
+      </div>
+
+      <details class="gsec" open>
+        <summary><span class="gi">🚪</span>Getting in</summary>
+        <ul>
+          <li><b>Driver:</b> right-click the car and choose <span class="k">Drive</span>.</li>
+          <li><b>Passenger:</b> click the passenger seat, or right-click it and choose <span class="k">Sit</span>.</li>
+          <li>To get out, click <span class="k">Stand Up</span>.</li>
+          <li>The camera follows you automatically while you drive.</li>
+        </ul>
+      </details>
+
+      <details class="gsec">
+        <summary><span class="gi">🚗</span>Driving</summary>
+        <div class="keys">
+          <div><span class="k">W</span><span class="k">↑</span><em>Accelerate</em></div>
+          <div><span class="k">S</span><span class="k">↓</span><em>Brake, then reverse</em></div>
+          <div><span class="k">A</span><span class="k">D</span><span class="k">←</span><span class="k">→</span><em>Steer</em></div>
+          <div><span class="k">C</span><span class="k">PgDn</span><em>Extra brake</em></div>
+        </div>
+        <ul>
+          <li>Steering works once you're rolling, just like a real car.</li>
+          <li>Let go of the keys and the car gently coasts to a stop.</li>
+        </ul>
+      </details>
+
+      <details class="gsec">
+        <summary><span class="gi">✈️</span>Flying</summary>
+        <div class="callout"><b>Take off:</b> hold the <b>left mouse button</b> for about <b>1.5 seconds</b>, or type <span class="k">/7 fly</span> in local chat.
+          <small>Wait a few seconds after sitting down before you try.</small></div>
+        <div class="keys">
+          <div><span class="k">W</span><span class="k">↑</span><em>Speed up</em></div>
+          <div><span class="k">S</span><span class="k">↓</span><em>Slow down / reverse</em></div>
+          <div><span class="k">A</span><span class="k">D</span><em>Turn (the car banks)</em></div>
+          <div><span class="k">E</span><span class="k">PgUp</span><em>Climb</em></div>
+          <div><span class="k">C</span><span class="k">PgDn</span><em>Go lower</em></div>
+        </div>
+      </details>
+
+      <details class="gsec">
+        <summary><span class="gi">🛬</span>Landing</summary>
+        <ul>
+          <li>Fly low and <b>hold <span class="k">C</span></b>. The car lands itself near the ground.</li>
+          <li>Or type <span class="k">/7 land</span> and it sets down gently below you.</li>
+          <li>Standing up mid-air? The car lowers itself safely to the ground.</li>
+        </ul>
+      </details>
+
+      <details class="gsec">
+        <summary><span class="gi">🚪</span>Doors</summary>
+        <ul>
+          <li>Touch the <b>left</b> or <b>right</b> door to open it. Touch again to close.</li>
+          <li>Each door opens on its own, so you can make a grand entrance.</li>
+        </ul>
+      </details>
+
+      <details class="gsec">
+        <summary><span class="gi">✦</span>Lights</summary>
+        <ul>
+          <li>Use the <b>Lights</b> app on this screen for colours, effects, glow and speed.</li>
+          <li><b>Console light panel:</b> tap the left side for ambient lights, the middle for the cabin light, the right side for headlights.</li>
+          <li><b>Hold the panel</b> for 1 second, or <b>touch the dashboard</b>, for the full lights menu.</li>
+          <li>10 colours and 8 effects. Your favourite settings are remembered.</li>
+          <li>The owner and anyone sitting in the car can change the lights.</li>
+        </ul>
+        <button class="gbtn" data-open="lights">Open Lights ✦</button>
+      </details>
+
+      <details class="gsec">
+        <summary><span class="gi">💺</span>Seat fit</summary>
+        <p>The <b>owner</b>, sitting in the driver's seat, can fine-tune both seats:</p>
+        <div class="cmds">
+          <span class="k">/7 seat up</span><span class="k">/7 seat down</span><span class="k">/7 seat fwd</span><span class="k">/7 seat back</span><span class="k">/7 seat reset</span>
+        </div>
+      </details>
+
+      <details class="gsec">
+        <summary><span class="gi">📏</span>Bigger or smaller</summary>
+        <ul>
+          <li>Head poking through the roof? Make the car bigger! (owner only)</li>
+          <li>Everyone stands up first.</li>
+          <li>Type <span class="k">/7 size</span>, or <b>hold the left mouse button on the car body</b> for 1.5 seconds.</li>
+          <li>Pick −5% · −1% · +1% · +5% or 100% · 110% · 120% · 130%. Or type an exact size, like <span class="k">/7 size 115</span>.</li>
+          <li>Seats, poses and doors adjust with it. <b>115–120%</b> fits taller avatars nicely.</li>
+        </ul>
+      </details>
+
+      <details class="gsec">
+        <summary><span class="gi">🎨</span>Paint colours</summary>
+        <ul>
+          <li>Rez the <b>Tesla Colour Cube</b> within 20 m of your car.</li>
+          <li>Touch the cube, pick your car, then pick a colour.</li>
+        </ul>
+        <div class="paints">
+          <span><i style="background:#45484d"></i>Stealth Grey</span><span><i style="background:#ebebe8"></i>Pearl White</span>
+          <span><i style="background:#0b0c0e;border-color:#555"></i>Solid Black</span><span><i style="background:#1a3166"></i>Deep Blue</span>
+        </div>
+      </details>
+
+      <details class="gsec">
+        <summary><span class="gi">💬</span>Chat commands</summary>
+        <div class="cmdlist">
+          <div><span class="k">/7 fly</span><em>Take off</em></div>
+          <div><span class="k">/7 land</span><em>Land</em></div>
+          <div><span class="k">/7 drive</span><em>Back to driving (lands the car)</em></div>
+          <div><span class="k">/7 size</span><em>Resize menu (owner)</em></div>
+          <div><span class="k">/7 seat …</span><em>Seat fit (owner, while driving)</em></div>
+          <div><span class="k">/7 lights on</span><em>Ambient lights on (owner)</em></div>
+          <div><span class="k">/7 lights off</span><em>Ambient lights off (owner)</em></div>
+          <div><span class="k">/7 lights menu</span><em>Lights menu (owner)</em></div>
+        </div>
+      </details>
+
+      <details class="gsec">
+        <summary><span class="gi">💡</span>Little helpers</summary>
+        <ul>
+          <li><b>Car won't move?</b> Some land doesn't allow vehicles. Try your own land or a vehicle-friendly sandbox.</li>
+          <li><b>Something feels stuck?</b> Have everyone stand up, then sit again.</li>
+          <li><b>Upside down?</b> Just stand up. The car flips back onto its wheels.</li>
+          <li><b>Can't take off?</b> Wait a few seconds after sitting, then hold the left mouse a little longer, or type <span class="k">/7 fly</span>.</li>
+          <li><b>Screen blank?</b> Turn media on in your viewer (Preferences › Sound &amp; Media), then touch the screen.</li>
+        </ul>
+      </details>
+      <div class="gfoot">Enjoy the ride, and the sky ✈ ♥</div>
     </section>
   </main>
 

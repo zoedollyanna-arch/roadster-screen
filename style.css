@@ -115,3 +115,45 @@ input[type=range] { width: 100%; accent-color: var(--accent); height: 1.6rem; }
 .ext-link { display: block; width: 100%; margin: 1rem 0 .4rem; padding: .9rem; border-radius: .9rem; background: var(--panel); border: 1px solid var(--line); color: var(--dim); font-size: 1rem; }
 .ext-link small { display: block; font-size: .8rem; margin-top: .2rem; }
 .item .dur { color: var(--dim); font-size: .85rem; flex: none; }
+
+/* home: rotating quick tip */
+.tip-card { margin-top: 1rem; width: 100%; display: flex; align-items: center; gap: .9rem; text-align: left;
+  background: linear-gradient(135deg, #1b2440, #16181c 70%); border: 1px solid #2c3a66; border-radius: 1.2rem; padding: .9rem 1.1rem; }
+.tip-ic { width: 3rem; height: 3rem; border-radius: .8rem; background: #24305a; display: grid; place-items: center; font-size: 1.5rem; flex: none; }
+.tip-txt { flex: 1; min-width: 0; }
+.tip-txt small { display: block; color: #8fa6e8; font-size: .85rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
+.tip-txt b { display: block; font-size: 1.1rem; font-weight: 600; margin-top: .15rem; transition: opacity .3s; }
+.tip-txt b.fade { opacity: 0; }
+.tip-go { font-size: 1.8rem; color: var(--dim); }
+
+/* guide */
+.guide-hero { background: linear-gradient(160deg, #1d2236, #121418); border: 1px solid var(--line); border-radius: 1.2rem; padding: 1.1rem 1.2rem; }
+.gh-title { font-size: 1.5rem; font-weight: 700; }
+.gh-sub { color: var(--dim); margin-top: .25rem; font-size: 1.05rem; }
+.gh-link { margin-top: .7rem; display: inline-block; font-size: .85rem; padding: .3rem .8rem; border-radius: 1rem; background: #2a1c1c; color: #ff9d9d; }
+.gh-link.ok { background: #14281c; color: var(--ok); }
+.gsec { margin-top: .8rem; background: var(--panel); border: 1px solid var(--line); border-radius: 1rem; overflow: hidden; }
+.gsec summary { list-style: none; display: flex; align-items: center; gap: .8rem; padding: 1rem 1.1rem; font-size: 1.2rem; font-weight: 600; cursor: pointer; }
+.gsec summary::-webkit-details-marker { display: none; }
+.gsec summary::after { content: "›"; margin-left: auto; font-size: 1.6rem; color: var(--dim); transition: transform .2s; }
+.gsec[open] summary::after { transform: rotate(90deg); }
+.gsec[open] summary { border-bottom: 1px solid var(--line); }
+.gi { width: 2.4rem; height: 2.4rem; border-radius: .7rem; background: var(--panel2); display: grid; place-items: center; font-size: 1.2rem; flex: none; }
+.gsec ul { margin: .8rem 0 .9rem; padding: 0 1.2rem 0 2.6rem; }
+.gsec li { margin: .45rem 0; line-height: 1.45; font-size: 1.05rem; }
+.gsec li::marker { color: var(--accent); }
+.gsec p { margin: .9rem 1.2rem .4rem; font-size: 1.05rem; line-height: 1.45; }
+.k { display: inline-block; background: #2b3039; border: 1px solid #3c424d; border-bottom-width: 3px; border-radius: .45rem;
+  padding: .05rem .5rem; font-size: .95rem; font-weight: 700; font-family: Consolas, "Segoe UI Mono", monospace; color: #fff; white-space: nowrap; }
+.keys, .cmdlist { padding: .8rem 1.1rem .4rem; display: flex; flex-direction: column; gap: .55rem; }
+.keys > div, .cmdlist > div { display: flex; align-items: center; gap: .35rem; flex-wrap: wrap; }
+.keys em, .cmdlist em { font-style: normal; color: var(--dim); margin-left: .5rem; font-size: 1.02rem; }
+.cmdlist { padding-bottom: 1rem; }
+.cmds { display: flex; flex-wrap: wrap; gap: .5rem; padding: .3rem 1.2rem 1rem; }
+.callout { margin: .9rem 1.1rem .2rem; padding: .8rem 1rem; border-radius: .8rem; background: #1b2440; border: 1px solid #2c3a66; line-height: 1.5; font-size: 1.05rem; }
+.callout small { display: block; color: #8fa6e8; margin-top: .3rem; font-size: .9rem; }
+.gbtn { margin: 0 1.1rem 1rem; width: calc(100% - 2.2rem); padding: .8rem; border-radius: .8rem; background: var(--accent); font-weight: 600; font-size: 1.05rem; }
+.paints { display: grid; grid-template-columns: repeat(2, 1fr); gap: .6rem; padding: 0 1.1rem 1rem; }
+.paints span { display: flex; align-items: center; gap: .6rem; background: var(--panel2); border-radius: .7rem; padding: .55rem .7rem; font-size: 1rem; }
+.paints i { width: 1.5rem; height: 1.5rem; border-radius: 50%; border: 2px solid rgba(255,255,255,.25); flex: none; }
+.gfoot { text-align: center; color: var(--dim); padding: 1.2rem 0 .4rem; font-size: 1rem; }

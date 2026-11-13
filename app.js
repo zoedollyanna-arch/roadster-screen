@@ -35,7 +35,7 @@ function send(params) {
   // The car's reply has no CORS headers; a no-cors GET still reaches it.
   fetch(u.toString(), { mode: 'no-cors', cache: 'no-store' }).catch(() => { new Image().src = u.toString(); });
 }
-if (CAR) { $('#connBadge').textContent = 'Linked to car'; $('#connBadge').classList.add('ok'); $('#aboutLink').textContent = 'Linked'; }
+if (CAR) { $('#connBadge').textContent = 'Linked to car'; $('#connBadge').classList.add('ok'); $('#aboutLink').textContent = '✓ Connected to your car'; $('#aboutLink').classList.add('ok'); }
 
 /* ------------------------------------------------------------------ navigation (Back + Home everywhere) */
 const navStack = ['home'];
@@ -55,6 +55,24 @@ open('home', false);
 /* ------------------------------------------------------------------ clock + status */
 function tick() { const d = new Date(); $('#clock').textContent = d.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' }); }
 tick(); setInterval(tick, 10000);
+
+/* ------------------------------------------------------------------ home: rotating quick tips (tap opens the Guide) */
+const TIPS = [
+  ['✈️', 'Hold the left mouse button for 1.5 s to take off'],
+  ['🛬', 'Fly low and hold C to land, or type /7 land'],
+  ['⬆️', 'In the air: E climbs, C goes lower'],
+  ['🚪', 'Touch a door to open or close it'],
+  ['✦', 'Tap the console light panel for ambient, cabin and headlights'],
+  ['📏', 'Head through the roof? Owner types /7 size to make the car bigger'],
+  ['💺', 'Owner can fine-tune seats with /7 seat up / down'],
+  ['🎨', 'Use the Tesla Colour Cube to change the paint'],
+  ['🙃', 'Upside down? Just stand up and the car flips back'],
+];
+let tipIx = 0;
+setInterval(() => {
+  const t = $('#tipText'); t.classList.add('fade');
+  setTimeout(() => { tipIx = (tipIx + 1) % TIPS.length; $('#tipIcon').textContent = TIPS[tipIx][0]; t.textContent = TIPS[tipIx][1]; t.classList.remove('fade'); }, 300);
+}, 7000);
 
 /* ------------------------------------------------------------------ now playing (one source at a time) */
 const audio = $('#radioAudio'); let nowSource = null;   // 'radio' | 'youtube'
