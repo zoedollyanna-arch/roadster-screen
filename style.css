@@ -156,4 +156,5 @@ input[type=range] { width: 100%; accent-color: var(--accent); height: 1.6rem; }
 .paints { display: grid; grid-template-columns: repeat(2, 1fr); gap: .6rem; padding: 0 1.1rem 1rem; }
 .paints span { display: flex; align-items: center; gap: .6rem; background: var(--panel2); border-radius: .7rem; padding: .55rem .7rem; font-size: 1rem; }
 .paints i { width: 1.5rem; height: 1.5rem; border-radius: 50%; border: 2px solid rgba(255,255,255,.25); flex: none; }
+.gnote { margin: 0 1.2rem 1rem !important; color: #8fa6e8; font-size: .98rem !important; }
 .gfoot { text-align: center; color: var(--dim); padding: 1.2rem 0 .4rem; font-size: 1rem; }
