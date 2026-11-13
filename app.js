@@ -65,7 +65,6 @@ const TIPS = [
   ['✦', 'Tap the console light panel for ambient, cabin and headlights'],
   ['📏', 'Head through the roof? Owner types /7 size to make the car bigger'],
   ['💺', 'Owner can fine-tune seats with /7 seat up / down'],
-  ['🎨', 'Use the Tesla Colour Cube to change the paint'],
   ['🙃', 'Upside down? Just stand up and the car flips back'],
 ];
 let tipIx = 0;

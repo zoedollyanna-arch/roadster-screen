@@ -153,8 +153,5 @@ input[type=range] { width: 100%; accent-color: var(--accent); height: 1.6rem; }
 .callout { margin: .9rem 1.1rem .2rem; padding: .8rem 1rem; border-radius: .8rem; background: #1b2440; border: 1px solid #2c3a66; line-height: 1.5; font-size: 1.05rem; }
 .callout small { display: block; color: #8fa6e8; margin-top: .3rem; font-size: .9rem; }
 .gbtn { margin: 0 1.1rem 1rem; width: calc(100% - 2.2rem); padding: .8rem; border-radius: .8rem; background: var(--accent); font-weight: 600; font-size: 1.05rem; }
-.paints { display: grid; grid-template-columns: repeat(2, 1fr); gap: .6rem; padding: 0 1.1rem 1rem; }
-.paints span { display: flex; align-items: center; gap: .6rem; background: var(--panel2); border-radius: .7rem; padding: .55rem .7rem; font-size: 1rem; }
-.paints i { width: 1.5rem; height: 1.5rem; border-radius: 50%; border: 2px solid rgba(255,255,255,.25); flex: none; }
 .gnote { margin: 0 1.2rem 1rem !important; color: #8fa6e8; font-size: .98rem !important; }
 .gfoot { text-align: center; color: var(--dim); padding: 1.2rem 0 .4rem; font-size: 1rem; }
